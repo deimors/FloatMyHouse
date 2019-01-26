@@ -1,5 +1,6 @@
 ﻿using System;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 public class SceneInstaller : MonoInstaller
@@ -10,6 +11,9 @@ public class SceneInstaller : MonoInstaller
 
 		Container.Bind<Game>().AsSingle();
 
-		Container.Bind<IObservable<TimeTickEvent>>().FromInstance(Observable.EveryUpdate().Select(_ => new TimeTickEvent())).AsSingle();
+		Container.Bind<IObservable<TimeTickEvent>>().FromInstance(CreateTimeStream()).AsSingle();
 	}
+
+	private static IObservable<TimeTickEvent> CreateTimeStream() 
+		=> Observable.EveryUpdate().Select(_ => new TimeTickEvent(Time.deltaTime));
 }
