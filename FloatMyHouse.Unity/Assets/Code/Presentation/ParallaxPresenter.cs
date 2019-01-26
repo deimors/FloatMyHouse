@@ -6,7 +6,11 @@ public class ParallaxPresenter : MonoBehaviour
 {
 	private const string TextureName = "_MainTex";
 
-	public float Scale = .1f;
+	public float TextureScale = 4;
+
+	public Vector2 Offset = Vector2.zero;
+	public Vector2 Scale = new Vector2(.1f, .01f);
+
 	public MeshRenderer MeshRenderer;
 
 	private Vector2 _origOffset;
@@ -18,7 +22,15 @@ public class ParallaxPresenter : MonoBehaviour
 
 	void LateUpdate()
 	{
-		var newOffset = new Vector2(transform.position.x * Scale, transform.position.y * Scale);
-		MeshRenderer.sharedMaterial.SetTextureOffset(TextureName, newOffset);
+		var cameraScale = Camera.main.orthographicSize / 2;
+
+		var newOffset = new Vector2(((transform.position.x * Scale.x) + Offset.x), (transform.position.y * Scale.y) + Offset.y - (cameraScale * .1f));
+		MeshRenderer.material.SetTextureOffset(TextureName, newOffset);
+		
+
+		
+		transform.localScale = new Vector3(cameraScale, cameraScale, cameraScale);
+
+		MeshRenderer.material.SetTextureScale(TextureName, new Vector2(cameraScale / TextureScale, cameraScale / TextureScale));
 	}
 }
