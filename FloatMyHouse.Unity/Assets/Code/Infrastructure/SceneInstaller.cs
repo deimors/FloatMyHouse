@@ -8,6 +8,8 @@ public class SceneInstaller : MonoInstaller
 	{
 		Container.Bind<Balloon>().AsSingle();
 
+		Container.Bind<Game>().AsSingle();
+
 		Container.Bind<IObservable<TimeTickEvent>>().FromInstance(Observable.EveryUpdate().Select(_ => new TimeTickEvent())).AsSingle();
 	}
 }
