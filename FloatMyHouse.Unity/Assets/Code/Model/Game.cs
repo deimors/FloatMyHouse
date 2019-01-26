@@ -1,5 +1,6 @@
 ﻿using System;
 using UniRx;
+using UnityEngine;
 
 public class Game
 {
@@ -14,5 +15,10 @@ public class Game
 	public void Lose()
 	{
 		_events.OnNext(new GameLostEvent());
+	}
+
+	public void InitializeGoalPosition(Vector2 position)
+	{
+		_events.OnNext(new GoalPositionInitializedEvent(position));
 	}
 }

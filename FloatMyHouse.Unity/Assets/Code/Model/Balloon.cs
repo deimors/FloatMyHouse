@@ -1,5 +1,6 @@
 ﻿using System;
 using UniRx;
+using UnityEngine;
 
 public class Balloon
 {
@@ -31,6 +32,11 @@ public class Balloon
 	public void EndLift()
 	{
 		_addingLift = false;
+	}
+
+	public void UpdatePosition(Vector2 position)
+	{
+		_events.OnNext(new PositionUpdatedEvent(position));
 	}
 
 	private void Initialize()

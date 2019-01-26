@@ -8,6 +8,11 @@ public class GoalIslandPresenter : MonoBehaviour
 	[Inject]
 	public Game GameModel { get; private set; }
 
+	void Start()
+	{
+		GameModel.InitializeGoalPosition(transform.position);
+	}
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (IsCollisionWithHouse(collision))

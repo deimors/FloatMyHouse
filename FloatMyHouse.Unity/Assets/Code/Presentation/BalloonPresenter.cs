@@ -13,6 +13,10 @@ public class BalloonPresenter : MonoBehaviour
 		balloonModel.Events
 			.OfType<BalloonEvent, LiftAddedEvent>()
 			.Subscribe(_ => AddUpForce(Magnitude));
+
+		Observable.EveryLateUpdate()
+			.Select(_ => (Vector2)transform.position)
+			.Subscribe(balloonModel.UpdatePosition);
 	}
 
 	void Update()
