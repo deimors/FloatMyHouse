@@ -10,4 +10,9 @@ public class Game
 	{
 		_events.OnNext(new GameWonEvent());
 	}
+
+	public void Lose()
+	{
+		_events.OnNext(new GameLostEvent());
+	}
 }

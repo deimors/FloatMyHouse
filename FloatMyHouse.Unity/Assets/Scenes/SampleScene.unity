@@ -247,6 +247,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6efe2dbadbf21b41b52946a0aa69f65, type: 3}
+--- !u!1 &716517427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4129637363439789352, guid: 442c4a4aebeac4f4681d7edcbb64cc9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4129637363015439643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &716517428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716517427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ba30d6d5e6db54c8209e65dcbc7a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1183407634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,6 +602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129637363439789352, guid: 442c4a4aebeac4f4681d7edcbb64cc9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4129637363439789358, guid: 442c4a4aebeac4f4681d7edcbb64cc9a,
         type: 3}
