@@ -1,26 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UniRx;
 using UnityEngine;
+using Zenject;
 
 public class BalloonPresenter : MonoBehaviour
 {
 	public Rigidbody2D BalloonRigidBody;
 	public float Magnitude;
 
-	// Start is called before the first frame update
-	void Start()
+	[Inject]
+	public void Initialize(Balloon balloonModel)
 	{
-		
+		balloonModel.Events
+			.OfType<BalloonEvent, LiftAddedEvent>()
+			.Subscribe(_ => AddUpForce(Magnitude));
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.Space))
-		{
-			AddUpForce(Magnitude);
-		}
-
 		AddUpForce(1);
 	}
 

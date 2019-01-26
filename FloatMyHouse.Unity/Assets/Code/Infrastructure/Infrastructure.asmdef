@@ -2,7 +2,8 @@
     "name": "Infrastructure",
     "references": [
         "Model",
-        "Zenject"
+        "Zenject",
+        "UniRx"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
