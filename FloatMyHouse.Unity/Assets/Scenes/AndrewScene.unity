@@ -866,11 +866,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
-    - target: {fileID: 4129637363439789352, guid: 442c4a4aebeac4f4681d7edcbb64cc9a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4129637363439789358, guid: 442c4a4aebeac4f4681d7edcbb64cc9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -943,12 +938,12 @@ PrefabInstance:
     - target: {fileID: 4147539256567905515, guid: 69e062fdf5f7a664fb82109460798d9b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.4
+      value: -17.9
       objectReference: {fileID: 0}
     - target: {fileID: 4147539256567905515, guid: 69e062fdf5f7a664fb82109460798d9b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4147539256567905515, guid: 69e062fdf5f7a664fb82109460798d9b,
         type: 3}
