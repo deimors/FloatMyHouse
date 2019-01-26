@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7730753090681861903}
   - component: {fileID: 7730753090681861902}
   - component: {fileID: 7730753090681861897}
+  - component: {fileID: 5063529395822424756}
   m_Layer: 0
   m_Name: East Wind Zone
   m_TagString: Untagged
@@ -158,3 +159,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.04, y: 4.28}
   m_EdgeRadius: 0
+--- !u!114 &5063529395822424756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730753090681861896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b989dc5f1453d774eb9e873308f3a0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WindSprite: {fileID: 7730753090564480712}
