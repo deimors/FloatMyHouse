@@ -58,7 +58,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
      inkscape:cx="277.56695"
-     inkscape:cy="966.55765"
+     inkscape:cy="562.49663"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -102,14 +102,15 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
-       style="fill:#008000;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.95960617;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect4489"
-       width="63.075607"
-       height="34.210499"
+       width="28.865108"
+       height="26.192413"
        x="88.733482"
        y="67.682747"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="C:\Users\deimo\Documents\Code Projects\FloatMyHouse\FloatMyHouse.Unity\Assets\Art\Sprites\White Box.png" />
     <rect
        style="fill:url(#Wavywhite);fill-opacity:1.0;stroke:none;stroke-width:5.77874517;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;opacity:1;fill-rule:nonzero"
        id="rect4493"
@@ -117,6 +118,15 @@
        height="44.657074"
        x="20.701855"
        y="13.549134"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6009"
+       cx="162.49986"
+       cy="156.95078"
+       r="14.967093"
+       inkscape:export-filename="C:\Users\deimo\Documents\Code Projects\FloatMyHouse\FloatMyHouse.Unity\Assets\Art\Sprites\Small Circle.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
   </g>
