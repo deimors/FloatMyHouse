@@ -32,11 +32,18 @@ public class Balloon
 	public void StartLift()
 	{
 		_addingLift = true;
+
+		_events.OnNext(new LiftStartedEvent());
 	}
 
 	public void EndLift()
 	{
-		_addingLift = false;
+		if (_addingLift)
+		{
+			_addingLift = false;
+
+			_events.OnNext(new LiftEndedEvent());
+		}
 	}
 
 	public void UpdatePosition(Vector2 position)
@@ -70,6 +77,10 @@ public class Balloon
 
 			_events.OnNext(new LiftAddedEvent());
 			_events.OnNext(new FuelConsumedEvent(fuelConsumed, _currentFuelLevel));
+		}
+		else
+		{
+			EndLift();
 		}
 	}
 
