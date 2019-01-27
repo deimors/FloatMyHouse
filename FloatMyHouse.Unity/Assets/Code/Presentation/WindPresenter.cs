@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class WindPresenter : MonoBehaviour
 {
 	public SpriteRenderer WindSprite;
+
+	[Inject]
+	public Balloon BalloonModel;
 
 	void Awake()
 	{
@@ -14,11 +18,13 @@ public class WindPresenter : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		ShowWind();
+		BalloonModel.StartBlowing();
 	}
 	
 	void OnTriggerExit2D(Collider2D collision)
 	{
 		HideWind();
+		BalloonModel.EndBlowing();
 	}
 	
 	private void ShowWind()

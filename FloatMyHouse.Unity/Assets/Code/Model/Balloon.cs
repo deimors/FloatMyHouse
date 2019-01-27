@@ -14,6 +14,7 @@ public class Balloon
 
 	private bool _addingLift;
 	private bool _refueling;
+	private int _blowing;
 
 	private float _currentFuelLevel;
 
@@ -59,6 +60,22 @@ public class Balloon
 	public void EndRefueling()
 	{
 		_refueling = false;
+	}
+
+	public void StartBlowing()
+	{
+		_blowing++;
+
+		if (_blowing == 1)
+			_events.OnNext(new BlowingStartedEvent());
+	}
+
+	public void EndBlowing()
+	{
+		_blowing--;
+
+		if (_blowing == 0)
+			_events.OnNext(new BlowingEndedEvent());
 	}
 
 	private void Initialize()
