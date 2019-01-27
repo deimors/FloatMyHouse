@@ -17,7 +17,12 @@ public class Game
 			lost => () => { }
 		).Invoke();
 	}
-	
+
+	public void NextLevel()
+	{
+		
+	}
+
 	public void Lose()
 	{
 		_state.Match<Action>(
