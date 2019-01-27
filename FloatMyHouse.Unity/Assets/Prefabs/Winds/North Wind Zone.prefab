@@ -107,11 +107,6 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 4.28
       objectReference: {fileID: 0}
-    - target: {fileID: 5063529395822424756, guid: c4d7838ec25f694478e5c574071330a8,
-        type: 3}
-      propertyPath: WindSprite
-      value: 
-      objectReference: {fileID: 2309088891614391762}
     - target: {fileID: 7730753090564480712, guid: c4d7838ec25f694478e5c574071330a8,
         type: 3}
       propertyPath: m_Color.r
@@ -122,6 +117,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.26493266
       objectReference: {fileID: 0}
+    - target: {fileID: 5063529395822424756, guid: c4d7838ec25f694478e5c574071330a8,
+        type: 3}
+      propertyPath: WindSprite
+      value: 
+      objectReference: {fileID: 3186896832547668728}
     - target: {fileID: 6790820961699617928, guid: c4d7838ec25f694478e5c574071330a8,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -164,9 +164,9 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: bae172f5af7a435498ad2a22535b8223, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d7838ec25f694478e5c574071330a8, type: 3}
---- !u!212 &2309088891614391762 stripped
+--- !u!212 &3186896832547668728 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7730753090564480712, guid: c4d7838ec25f694478e5c574071330a8,
+  m_CorrespondingSourceObject: {fileID: 7455866611479802338, guid: c4d7838ec25f694478e5c574071330a8,
     type: 3}
   m_PrefabInstance: {fileID: 5423089207967003418}
   m_PrefabAsset: {fileID: 0}
