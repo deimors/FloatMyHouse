@@ -7,7 +7,7 @@ public class Balloon
 	private const float MaxFuelLevel = 100;
 	private const float InitialFuelLevel = 100;
 	private const float FuelConsumedPerSecond = 10;
-	private const float RefuelPerSecond = 5;
+	private const float RefuelPerSecond = 50;
 
 	private readonly ISubject<BalloonEvent> _events = new Subject<BalloonEvent>();
 	public IObservable<BalloonEvent> Events => _events;

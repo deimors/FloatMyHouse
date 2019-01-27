@@ -71,6 +71,6 @@ public class LevelManager : MonoBehaviour
 
 	private void LoadCurrentLevel()
 	{
-		SceneLoader.LoadSceneAsync(CurrentLevel, LoadSceneMode.Additive);
+		SceneLoader.LoadSceneAsync(CurrentLevel, LoadSceneMode.Additive, container => container.Bind<LevelManager>().FromInstance(this));
 	}
 }

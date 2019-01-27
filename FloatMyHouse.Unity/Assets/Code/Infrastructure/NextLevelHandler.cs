@@ -4,8 +4,9 @@ using Zenject;
 public class NextLevelHandler
 {
 	[Inject]
-	public void Initialize(Game gameModel, LevelManager levelManager)
+	public void Initialize(Game gameModel, [InjectOptional]LevelManager levelManager)
 	{
-		gameModel.Events.OfType<GameEvent, NextLevelRequestedEvent>().Subscribe(_ => levelManager.NextLevel());
+		if (levelManager != null)
+			gameModel.Events.OfType<GameEvent, NextLevelRequestedEvent>().Subscribe(_ => levelManager.NextLevel());
 	}
 }
