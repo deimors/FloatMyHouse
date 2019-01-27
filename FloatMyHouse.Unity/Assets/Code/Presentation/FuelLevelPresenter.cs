@@ -20,6 +20,10 @@ public class FuelLevelPresenter : MonoBehaviour
 		balloonModel.Events
 			.OfType<BalloonEvent, FuelConsumedEvent>()
 			.Subscribe(UpdateFuelLevel);
+
+		balloonModel.Events
+			.OfType<BalloonEvent, RefueledEvent>()
+			.Subscribe(UpdateFuelLevel);
 	}
 	
 	private void InitializeFuelLevel(InitializedEvent initEvent)
@@ -30,6 +34,16 @@ public class FuelLevelPresenter : MonoBehaviour
 
 	private void UpdateFuelLevel(FuelConsumedEvent consumedEvent)
 	{
-		FuelSlider.value = consumedEvent.NewFuelLevel / _maxFuelLevel;
+		UpdateFuelLevel(consumedEvent.NewFuelLevel);
+	}
+	
+	private void UpdateFuelLevel(RefueledEvent refueledEvent)
+	{
+		UpdateFuelLevel(refueledEvent.NewFuelAmount);
+	}
+
+	private void UpdateFuelLevel(float newFuelLevel)
+	{
+		FuelSlider.value = newFuelLevel / _maxFuelLevel;
 	}
 }
