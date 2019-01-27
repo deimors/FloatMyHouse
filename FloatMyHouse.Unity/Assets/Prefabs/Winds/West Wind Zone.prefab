@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: m_ForceAngle
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 5063529395822424756, guid: c4d7838ec25f694478e5c574071330a8,
+        type: 3}
+      propertyPath: WindSprite
+      value: 
+      objectReference: {fileID: 4283958929577770242}
     - target: {fileID: 7730753090564480712, guid: c4d7838ec25f694478e5c574071330a8,
         type: 3}
       propertyPath: m_Color.r
@@ -87,5 +92,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.25098038
       objectReference: {fileID: 0}
+    - target: {fileID: 9053241448316245260, guid: c4d7838ec25f694478e5c574071330a8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a30cd3834b3062b469563dd13d20dd86, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d7838ec25f694478e5c574071330a8, type: 3}
+--- !u!212 &4283958929577770242 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7730753090564480712, guid: c4d7838ec25f694478e5c574071330a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5781085942261556170}
+  m_PrefabAsset: {fileID: 0}
