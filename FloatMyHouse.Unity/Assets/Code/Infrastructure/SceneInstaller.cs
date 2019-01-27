@@ -12,6 +12,8 @@ public class SceneInstaller : MonoInstaller
 		Container.Bind<Game>().AsSingle();
 
 		Container.Bind<IObservable<TimeTickEvent>>().FromInstance(CreateTimeStream()).AsSingle();
+
+		Container.Bind<RestartLevelHandler>().AsSingle().NonLazy();
 	}
 
 	private static IObservable<TimeTickEvent> CreateTimeStream() 

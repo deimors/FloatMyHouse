@@ -52,7 +52,8 @@ MonoBehaviour:
   _autoRun: 1
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
-  _parentContractNames: []
+  _parentContractNames:
+  - Bootstrap
 --- !u!114 &4104018468527425462
 MonoBehaviour:
   m_ObjectHideFlags: 0

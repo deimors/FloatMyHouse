@@ -16,7 +16,8 @@ public class BalloonPresenter : MonoBehaviour
 
 		Observable.EveryLateUpdate()
 			.Select(_ => (Vector2)transform.position)
-			.Subscribe(balloonModel.UpdatePosition);
+			.Subscribe(balloonModel.UpdatePosition)
+			.AddTo(gameObject);
 	}
 
 	void Update()

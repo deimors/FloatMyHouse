@@ -26,6 +26,11 @@ public class Game
 			lost => () => { }
 		).Invoke();
 	}
+
+	public void RestartLevel()
+	{
+		_events.OnNext(new LevelRestartRequestedEvent());
+	}
 	
 	private void WinGame()
 	{
