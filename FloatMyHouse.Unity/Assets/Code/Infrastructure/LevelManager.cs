@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,29 +8,51 @@ using Zenject;
 public class LevelManager : MonoBehaviour
 {
 	public List<string> Levels;
-
-	private string _loadedLevel;
-
+	
 	[Inject]
 	public ZenjectSceneLoader SceneLoader { get; private set; }
 
+	private int? _currentLevel;
+
+	private string CurrentLevel
+	{
+		get => Levels[_currentLevel ?? throw new InvalidOperationException("No Current Level")];
+	}
+
 	void Start()
 	{
-		if (_loadedLevel == null)
+		if (_currentLevel == null)
 		{
 			if (!Levels.Any())
 				Debug.LogError($"No {nameof(Levels)} defined in {nameof(LevelManager)}");
 			else
 			{
-				_loadedLevel = Levels.First();
-				SceneLoader.LoadSceneAsync(_loadedLevel, LoadSceneMode.Additive);
+				LoadFirstLevel();
 			}
+		}
+	}
+	
+	public void NextLevel()
+	{
+		if (_currentLevel.HasValue)
+		{
+			string previousLevel = CurrentLevel;
+
+			_currentLevel++;
+
+			var unloadOp = SceneManager.UnloadSceneAsync(previousLevel);
+			
+			unloadOp.completed += UnloadCompleted;
+		}
+		else
+		{
+			LoadFirstLevel();
 		}
 	}
 
 	public void Reload()
 	{
-		var unloadOp = SceneManager.UnloadSceneAsync(_loadedLevel);
+		var unloadOp = SceneManager.UnloadSceneAsync(CurrentLevel);
 
 		unloadOp.completed += UnloadCompleted;
 	}
@@ -37,7 +60,17 @@ public class LevelManager : MonoBehaviour
 	private void UnloadCompleted(AsyncOperation unloadOp)
 	{
 		unloadOp.completed -= UnloadCompleted;
+		LoadCurrentLevel();
+	}
 
-		SceneLoader.LoadSceneAsync(_loadedLevel, LoadSceneMode.Additive);
+	private void LoadFirstLevel()
+	{
+		_currentLevel = 0;
+		LoadCurrentLevel();
+	}
+
+	private void LoadCurrentLevel()
+	{
+		SceneLoader.LoadSceneAsync(CurrentLevel, LoadSceneMode.Additive);
 	}
 }

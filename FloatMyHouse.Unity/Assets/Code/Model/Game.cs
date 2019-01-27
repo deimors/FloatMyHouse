@@ -20,7 +20,7 @@ public class Game
 
 	public void NextLevel()
 	{
-		
+		_events.OnNext(new NextLevelRequestedEvent());
 	}
 
 	public void Lose()

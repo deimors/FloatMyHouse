@@ -14,6 +14,7 @@ public class SceneInstaller : MonoInstaller
 		Container.Bind<IObservable<TimeTickEvent>>().FromInstance(CreateTimeStream()).AsSingle();
 
 		Container.Bind<RestartLevelHandler>().AsSingle().NonLazy();
+		Container.Bind<NextLevelHandler>().AsSingle().NonLazy();
 	}
 
 	private static IObservable<TimeTickEvent> CreateTimeStream() 
