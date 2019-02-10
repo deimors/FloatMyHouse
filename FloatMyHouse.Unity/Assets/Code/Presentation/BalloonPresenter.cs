@@ -5,14 +5,14 @@ using Zenject;
 public class BalloonPresenter : MonoBehaviour
 {
 	public Rigidbody2D BalloonRigidBody;
-	public float Magnitude;
+	public float ConstantForcePerSecond = 60;
 
 	[Inject]
 	public void Initialize(Balloon balloonModel)
 	{
 		balloonModel.Events
 			.OfType<BalloonEvent, LiftAddedEvent>()
-			.Subscribe(_ => AddUpForce(Magnitude));
+			.Subscribe(e => AddUpForce(e.Force));
 
 		Observable.EveryLateUpdate()
 			.Select(_ => (Vector2)transform.position)
@@ -22,7 +22,7 @@ public class BalloonPresenter : MonoBehaviour
 
 	void Update()
 	{
-		AddUpForce(1);
+		AddUpForce(ConstantForcePerSecond * Time.deltaTime);
 	}
 
 	private void AddUpForce(float force)
