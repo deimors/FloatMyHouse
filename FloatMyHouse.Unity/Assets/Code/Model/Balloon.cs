@@ -8,6 +8,7 @@ public class Balloon
 	private const float InitialFuelLevel = 100;
 	private const float FuelConsumedPerSecond = 10;
 	private const float RefuelPerSecond = 50;
+	private const float ForcePerSecond = 600;
 
 	private readonly ISubject<BalloonEvent> _events = new Subject<BalloonEvent>();
 	public IObservable<BalloonEvent> Events => _events;
@@ -92,7 +93,9 @@ public class Balloon
 
 			_currentFuelLevel -= fuelConsumed;
 
-			_events.OnNext(new LiftAddedEvent());
+			var liftForce = ForcePerSecond * tickEvent.DeltaTime;
+
+			_events.OnNext(new LiftAddedEvent(liftForce));
 			_events.OnNext(new FuelConsumedEvent(fuelConsumed, _currentFuelLevel));
 		}
 		else
