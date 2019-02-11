@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using Assets.Code.Model.Game;
+using UniRx;
 using Zenject;
 
 public class NextLevelHandler

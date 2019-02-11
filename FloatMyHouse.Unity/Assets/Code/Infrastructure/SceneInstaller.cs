@@ -1,4 +1,8 @@
 ﻿using System;
+using Assets.Code.Model;
+using Assets.Code.Model.Balloon;
+using Assets.Code.Model.Game;
+using Assets.Code.Model.Rewards;
 using UniRx;
 using UnityEngine;
 using Zenject;

@@ -3,6 +3,7 @@ using Zenject;
 using UniRx;
 using UniRx.Triggers;
 using System;
+using Assets.Code.Model.Game;
 
 public class GoalIslandPresenter : MonoBehaviour
 {

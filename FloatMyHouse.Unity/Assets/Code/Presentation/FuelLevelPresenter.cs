@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Code.Model.Balloon;
 using UniRx;
 using UnityEngine;
 using Zenject;

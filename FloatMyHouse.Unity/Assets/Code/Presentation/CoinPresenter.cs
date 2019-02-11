@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Code.Model.Rewards;
+using UnityEngine;
 using Zenject;
 
 public class CoinPresenter : MonoBehaviour

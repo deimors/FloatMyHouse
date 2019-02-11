@@ -1,9 +1,12 @@
-﻿public class TimeTickEvent
+﻿namespace Assets.Code.Model
 {
-	public float DeltaTime { get; }
-
-	public TimeTickEvent(float deltaTime)
+	public class TimeTickEvent
 	{
-		DeltaTime = deltaTime;
+		public float DeltaTime { get; }
+
+		public TimeTickEvent(float deltaTime)
+		{
+			DeltaTime = deltaTime;
+		}
 	}
 }
