@@ -18,9 +18,21 @@ namespace Assets.Code.Model.Balloon
 		}
 	}
 
+	public class BagDetachedEvent : HouseEvent
+	{
+		public BagIdentifier BagId { get; }
+
+		public BagDetachedEvent([NotNull] BagIdentifier bagId)
+		{
+			BagId = bagId ?? throw new ArgumentNullException(nameof(bagId));
+		}
+	}
+
 	public class House
 	{
 		private readonly IDictionary<BalloonIdentifier, float> _balloonHeights = new Dictionary<BalloonIdentifier, float>();
+		private readonly IDictionary<BagIdentifier, float> _bags = new Dictionary<BagIdentifier, float>();
+
 		private readonly ISubject<HouseEvent> _events = new Subject<HouseEvent>();
 
 		public IObservable<HouseEvent> Events => _events;
@@ -29,14 +41,14 @@ namespace Assets.Code.Model.Balloon
 		{
 			_balloonHeights[balloonId] = height;
 		}
-
+		
 		public void UpdateHeight(BalloonIdentifier balloonId, float height)
 		{
 			if (_balloonHeights.ContainsKey(balloonId))
 				_balloonHeights[balloonId] = height;
 		}
 
-		public void DetachHighest()
+		public void DetachBalloon()
 		{
 			if (!_balloonHeights.Any())
 				return;
@@ -50,11 +62,37 @@ namespace Assets.Code.Model.Balloon
 
 			_events.OnNext(new BalloonDetachedEvent(highestBalloonId));
 		}
+
+		public void Attach(BagIdentifier bagId, float x)
+		{
+			_bags[bagId] = x;
+		}
+
+		public void DetachBag()
+		{
+			if (!_bags.Any())
+				return;
+
+			var furthestBagId = _bags
+				.OrderByDescending(pair => Math.Abs(pair.Value))
+				.Select(pair => pair.Key)
+				.First();
+
+			_bags.Remove(furthestBagId);
+
+			_events.OnNext(new BagDetachedEvent(furthestBagId));
+		}
+	}
+	
+	public class BagIdentifier
+	{
+		public override string ToString()
+			=> GetHashCode().ToString("x");
 	}
 
 	public class BalloonIdentifier
 	{
 		public override string ToString()
-			=> GetHashCode().ToString("X");
+			=> GetHashCode().ToString("x");
 	}
 }

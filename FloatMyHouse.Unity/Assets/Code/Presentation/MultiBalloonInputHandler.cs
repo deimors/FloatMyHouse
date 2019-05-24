@@ -5,15 +5,18 @@ using Zenject;
 
 public class MultiBalloonInputHandler : MonoBehaviour
 {
-	public KeyCode DetachKey = KeyCode.Space;
+	public KeyCode DetachBalloonKey = KeyCode.UpArrow;
+	public KeyCode DetachBagKey = KeyCode.DownArrow;
 
 	[Inject]
-	public void Initialize(House house)
+	public House HouseModel { private get; set; }
+	
+	void Update()
 	{
-		Observable
-			.EveryUpdate()
-			.Where(_ => Input.GetKeyDown(DetachKey))
-			.TakeUntilDestroy(gameObject)
-			.Subscribe(_ => house.DetachHighest());
+		if (Input.GetKeyDown(DetachBalloonKey))
+			HouseModel.DetachBalloon();
+
+		if (Input.GetKeyDown(DetachBagKey))
+			HouseModel.DetachBag();
 	}
 }
