@@ -42,12 +42,6 @@ namespace Assets.Code.Model.Balloon
 			_balloonHeights[balloonId] = height;
 		}
 		
-		public void UpdateHeight(BalloonIdentifier balloonId, float height)
-		{
-			if (_balloonHeights.ContainsKey(balloonId))
-				_balloonHeights[balloonId] = height;
-		}
-
 		public void DetachBalloon()
 		{
 			if (!_balloonHeights.Any())

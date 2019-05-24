@@ -13,12 +13,7 @@ public class MultiBalloonPresenter : MonoBehaviour
 		var id = new BalloonIdentifier();
 
 		houseModel.Attach(id, Height);
-
-		Observable
-			.EveryUpdate()
-			.TakeUntilDestroy(gameObject)
-			.Subscribe(_ => houseModel.UpdateHeight(id, Height));
-
+		
 		houseModel.Events
 			.OfType<HouseEvent, BalloonDetachedEvent>()
 			.Where(e => e.BalloonId == id)
@@ -26,7 +21,7 @@ public class MultiBalloonPresenter : MonoBehaviour
 			.Subscribe(_ => Detach());
 	}
 
-	private float Height => transform.position.y;
+	private float Height => transform.localPosition.y;
 
 	private void Detach()
 	{
